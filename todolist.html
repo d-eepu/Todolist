@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <style>
+        .container{
+            width: 50%;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #inputd{
+            width: 30%;
+            font-size: 20px;
+        }
+        #add{
+            font-size: 20px;
+            background-color: blue;
+        }
+        .list{
+            font-size: 20px;
+            font-family: sans-serif;
+            width: 20%;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do list of daily hobbies</h1>
+    <div class="container">
+    <input id="inputd" placeholder="enter data"/>
+    <button id="add" onclick="add_item()">Add</button>
+    <div class="list"><ul id="ulist"></ul></div>
+    </div>
+    <script>
+        function add_item(){
+        let data=document.getElementById('inputd');
+        let ulist=document.getElementById('ulist');
+        if(data.value !=""){
+            let make_li=document.createElement('li');
+            make_li.appendChild(document.createTextNode(data.value));
+            ulist.appendChild(make_li);
+            
+            make_li.onclick=function(){
+                this.parentNode.removeChild(this);
+            }
+        }
+        else{
+            alert("please add a value")
+        }
+    }
+    </script>
+</body>
+</html>
